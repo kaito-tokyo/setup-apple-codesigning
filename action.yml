@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2026 Kaito Udagawa <umireon@kaito.tokyo>
+#
+# SPDX-License-Identifier: Apache-2.0
+
+name: Set up Apple Code Signing
+description: Set up your GitHub Actions workflow for Apple codesigning.
+author: Kaito Udagawa
+
+# version: 1.0.0
+# date: 2026-06-29
+
+inputs:
+  MACOS_SIGNING_CERT:
+    description: Base64 encoded .p12 certificate from secrets.
+    required: true
+  MACOS_SIGNING_CERT_PASSWORD:
+    description: Password for the .p12 certificate from secrets.
+    required: true
+
+runs:
+  using: node24
+  main: main.mjs
+  post: post.mjs
